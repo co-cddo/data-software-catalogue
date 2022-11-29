@@ -1,0 +1,8 @@
+<%= render @organisation %>
+
+<div>
+  <%= link_to "Edit this organisation", edit_organisation_path(@organisation) %> |
+  <%= link_to "Back to organisations", root_path %>
+
+  <%= button_to "Destroy this organisation", @organisation, method: :delete %>
+</div>
