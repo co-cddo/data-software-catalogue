@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="govuk-form-group">
+    <%= form.label :name, style: "display: block", class: "govuk-label" %>
+    <%= form.text_field :name, class: "govuk-input" %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit class: "govuk-button", data: { module: "govuk-button" } %>
   </div>
 <% end %>

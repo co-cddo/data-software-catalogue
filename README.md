@@ -1,24 +1,28 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Deployment
 
-Things you may want to cover:
+### CSS
 
-* Ruby version
+SASS is used to compile CSS via [Dart SASS](https://sass-lang.com/dart-sass).
 
-* System dependencies
+To build the CSS locally from the app/assets/stylesheets/*.scss files, run
+the following command:
 
-* Configuration
+```
+rake dartsass:build
+```
 
-* Database creation
+This will compile the assets into the file app/assets/builds/application.css
 
-* Database initialization
+### JavaScript
 
-* How to run the test suite
+Some JavaScript functionality is provided via node packages (for example,
+govuk-frontend). The code for these packages is not stored in the git
+repository, so will need to be loaded prior to starting the app.
 
-* Services (job queues, cache servers, search engines, etc.)
+Run the following command to load the node packages into node_modules:
 
-* Deployment instructions
-
-* ...
+```
+npm install
+```
