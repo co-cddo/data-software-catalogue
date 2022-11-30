@@ -1,0 +1,31 @@
+{
+  "name": "data-software-catalogue",
+  "version": "1.0.0",
+  "description": "A catalogue of data software applications",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/co-cddo/data-software-catalogue.git"
+  },
+  "keywords": [
+    "data",
+    "api",
+    "catalogue",
+    "software"
+  ],
+  "author": "CDDO",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/co-cddo/data-software-catalogue/issues"
+  },
+  "homepage": "https://github.com/co-cddo/data-software-catalogue#readme",
+  "dependencies": {
+    "govuk-frontend": "^4.4.0"
+  }
+}

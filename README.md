@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Deployment
 
-Things you may want to cover:
+### CSS
 
-* Ruby version
+SASS is used to compile CSS via [Dart SASS](https://sass-lang.com/dart-sass).
 
-* System dependencies
+To build the CSS locally from the app/assets/stylesheets/*.scss files, run
+the following command:
 
-* Configuration
+```
+rake dartsass:build
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This will compile the assets into the file app/assets/builds/application.css
