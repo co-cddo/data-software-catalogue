@@ -1,9 +1,9 @@
 class OrganisationsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /organisations
   def index
-    @organisations = Organisation.all
+    authorize @organisations = Organisation.all
   end
 
   # GET /organisations/1
@@ -13,23 +13,23 @@ class OrganisationsController < ApplicationController
 
   # GET /organisations/new
   def new
-    @organisation = Organisation.new
-  end
-
-  # GET /organisations/1/edit
-  def edit
-    organisation
+    authorize @organisation = Organisation.new
   end
 
   # POST /organisations
   def create
-    @organisation = Organisation.new(organisation_params)
+    authorize @organisation = Organisation.new(organisation_params)
 
     if organisation.save
       redirect_to organisation, notice: "Organisation was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  # GET /organisations/1/edit
+  def edit
+    organisation
   end
 
   # PATCH/PUT /organisations/1
@@ -50,7 +50,7 @@ class OrganisationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def organisation
-      @organisation ||= Organisation.find(params[:id])
+      @organisation ||= authorize Organisation.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

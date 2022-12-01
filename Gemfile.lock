@@ -94,6 +94,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dibber (0.7.0)
     diff-lcs (1.5.0)
     erubi (1.11.0)
     globalid (1.0.0)
@@ -130,6 +131,8 @@ GEM
     public_suffix (5.0.0)
     puma (5.6.5)
       nio4r (~> 2.0)
+    pundit (2.2.0)
+      activesupport (>= 3.0.0)
     racc (1.6.0)
     rack (2.2.4)
     rack-test (2.0.2)
@@ -234,9 +237,11 @@ DEPENDENCIES
   dartsass-rails
   debug
   devise
+  dibber
   importmap-rails
   pg (~> 1.1)
   puma (~> 5.0)
+  pundit
   rails (~> 7.0.4)
   rspec-rails (~> 6.0.0)
   selenium-webdriver
