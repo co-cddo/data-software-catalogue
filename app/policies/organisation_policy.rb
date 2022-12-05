@@ -5,7 +5,7 @@ class OrganisationPolicy < ApplicationPolicy
 
   def admin_or_users_organisation?
     return unless user
-    
+
     user.admin? || record == user.organisation
   end
 
