@@ -4,6 +4,6 @@
 Seeder = Dibber::Seeder
 
 Seeder.seed Organisation
-Seeder.seed User, name_method: :email. overwrite: true
+Seeder.seed User, name_method: :email, overwrite: true
 
 Rails.logger.debug Seeder.report
