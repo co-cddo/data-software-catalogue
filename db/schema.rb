@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_01_105750) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_06_162426) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,6 +18,27 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_105750) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "software_instances", force: :cascade do |t|
+    t.string "name"
+    t.bigint "organisation_id", null: false
+    t.string "organisation_group"
+    t.string "team"
+    t.string "owner"
+    t.string "product"
+    t.string "provider"
+    t.string "provider_contact"
+    t.string "version"
+    t.text "description"
+    t.string "status"
+    t.boolean "internal"
+    t.string "license"
+    t.integer "quantity_purchased"
+    t.integer "quantity_used"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organisation_id"], name: "index_software_instances_on_organisation_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -37,4 +58,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_105750) do
     t.index ["organisation_id"], name: "index_users_on_organisation_id"
   end
 
+  add_foreign_key "software_instances", "organisations"
 end

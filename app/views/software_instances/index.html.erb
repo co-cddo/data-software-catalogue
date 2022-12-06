@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Software instances</h1>
+
+<div id="software_instances">
+  <% @software_instances.each do |software_instance| %>
+    <%= render software_instance %>
+    <p>
+      <%= link_to "Show this software instance", software_instance %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New software instance", new_software_instance_path %>
