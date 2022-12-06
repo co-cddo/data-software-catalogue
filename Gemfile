@@ -37,7 +37,7 @@ gem "stimulus-rails"
 # gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
@@ -58,10 +58,19 @@ gem 'pundit'
 # Seed management
 gem 'dibber'
 
+# Ruby linting and style management
+gem 'rubocop-govuk', require: false
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "debug", platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails', '~> 6.0.0'
+
+  # Factories used to build objects for specs
+  gem 'factory_bot_rails'
+
+  # Makes randomised data available for testing
+  gem 'faker'
 end
 
 group :development do

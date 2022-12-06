@@ -1,5 +1,5 @@
 class OrganisationsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: %i[index show]
 
   # GET /organisations
   def index
@@ -43,18 +43,19 @@ class OrganisationsController < ApplicationController
 
   # DELETE /organisations/1
   def destroy
-    organisation.destroy
+    organisation.destroy!
     redirect_to organisations_url, notice: "Organisation was successfully destroyed."
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def organisation
-      @organisation ||= authorize Organisation.find(params[:id])
-    end
+private
 
-    # Only allow a list of trusted parameters through.
-    def organisation_params
-      params.require(:organisation).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def organisation
+    @organisation ||= authorize Organisation.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def organisation_params
+    params.require(:organisation).permit(:name)
+  end
 end

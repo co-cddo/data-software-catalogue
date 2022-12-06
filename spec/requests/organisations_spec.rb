@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "/organisations", type: :request do
-  fixtures :all
-
   let(:valid_attributes) do
     { name: 'Something new' }
   end
@@ -11,11 +9,11 @@ RSpec.describe "/organisations", type: :request do
     { name: nil }
   end
 
-  let(:admin) { users :admin }
-  let(:user) { users :user }
+  let(:admin) { fixture :user, :admin }
+  let(:user) { fixture :user, :user }
   let(:sign_in_user) { sign_in user }
 
-  let(:organisation) { organisations :bar }
+  let(:organisation) { fixture :organisation, :bar }
 
   before { sign_in_user }
 
@@ -80,7 +78,6 @@ RSpec.describe "/organisations", type: :request do
           }.to change(Organisation, :count).by(0)
         end
 
-
         it "renders a response with 422 status (i.e. to display the 'new' template)" do
           post organisations_url, params: { organisation: invalid_attributes }
           expect(response).to have_http_status(:unprocessable_entity)
@@ -97,6 +94,7 @@ RSpec.describe "/organisations", type: :request do
 
     context 'when user is admin' do
       let(:sign_in_user) { sign_in admin }
+
       it "renders a successful response" do
         get edit_organisation_url(organisation)
         expect(response).to be_successful
@@ -105,6 +103,7 @@ RSpec.describe "/organisations", type: :request do
 
     context 'when organisation belongs to user' do
       let(:organisation) { user.organisation }
+
       it "renders a successful response" do
         get edit_organisation_url(organisation)
         expect(response).to be_successful
@@ -115,7 +114,7 @@ RSpec.describe "/organisations", type: :request do
   describe "PATCH /update" do
     let(:name) { 'Bar' }
     let(:new_attributes) do
-      { name: name }
+      { name: }
     end
 
     it "prevents access and redirects to root" do
@@ -173,6 +172,7 @@ RSpec.describe "/organisations", type: :request do
 
     context 'when user is admin' do
       let(:sign_in_user) { sign_in admin }
+
       it "destroys the requested organisation" do
         expect {
           delete organisation_url(organisation)

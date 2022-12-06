@@ -6,4 +6,4 @@ Seeder = Dibber::Seeder
 Seeder.seed Organisation
 Seeder.seed User, name_method: :email
 
-puts Seeder.report
+Rails.logger.debug Seeder.report
