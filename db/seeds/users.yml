@@ -1,6 +1,6 @@
 admin@example.com:
-  password: password
+  password: <%= Rails.application.credentials.seeds.password %>
   admin: true
 user@example.com:
-  password: password
+  password: <%= Rails.application.credentials.seeds.password %>
   organisation_id: <%= Organisation.find_or_create_by(name: 'Foo').id %>
