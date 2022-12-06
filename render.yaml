@@ -1,0 +1,18 @@
+databases:
+  - name: data-software-catalogue
+    databaseName: data-software-catalogue
+    user: data-software-catalogue
+
+services:
+  - type: web
+    name: data-software-catalogue
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: data-software-catalogue
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
