@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "/organisations", type: :request do
-  fixtures :all
-
   let(:valid_attributes) do
     { name: 'Something new' }
   end
@@ -11,11 +9,11 @@ RSpec.describe "/organisations", type: :request do
     { name: nil }
   end
 
-  let(:admin) { users :admin }
-  let(:user) { users :user }
+  let(:admin) { fixture :user, :admin }
+  let(:user) { fixture :user, :user }
   let(:sign_in_user) { sign_in user }
 
-  let(:organisation) { organisations :bar }
+  let(:organisation) { fixture :organisation, :bar }
 
   before { sign_in_user }
 
