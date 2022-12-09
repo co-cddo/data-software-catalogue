@@ -1,5 +1,5 @@
 class SoftwareInstancesController < ApplicationController
-  before_action :set_software_instance, only: %i[ show edit update destroy ]
+  before_action :set_software_instance, only: %i[show edit update destroy]
 
   # GET /software_instances
   def index
@@ -7,8 +7,7 @@ class SoftwareInstancesController < ApplicationController
   end
 
   # GET /software_instances/1
-  def show
-  end
+  def show; end
 
   # GET /software_instances/new
   def new
@@ -16,8 +15,7 @@ class SoftwareInstancesController < ApplicationController
   end
 
   # GET /software_instances/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /software_instances
   def create
@@ -41,18 +39,19 @@ class SoftwareInstancesController < ApplicationController
 
   # DELETE /software_instances/1
   def destroy
-    @software_instance.destroy
+    @software_instance.destroy!
     redirect_to software_instances_url, notice: "Software instance was successfully destroyed."
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_software_instance
-      @software_instance = SoftwareInstance.find(params[:id])
-    end
+private
 
-    # Only allow a list of trusted parameters through.
-    def software_instance_params
-      params.require(:software_instance).permit(:name, :organisation_id, :organisation_group, :team, :owner, :product, :provider, :provider_contact, :version, :description, :status, :internal, :license, :quantity_purchased, :quantity_used)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_software_instance
+    @software_instance = SoftwareInstance.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def software_instance_params
+    params.require(:software_instance).permit(:name, :organisation_id, :organisation_group, :team, :owner, :product, :provider, :provider_contact, :version, :description, :status, :internal, :license, :quantity_purchased, :quantity_used)
+  end
 end

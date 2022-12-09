@@ -18,7 +18,6 @@ RSpec.describe SoftwareInstancesController, type: :routing do
       expect(get: "/software_instances/1/edit").to route_to("software_instances#edit", id: "1")
     end
 
-
     it "routes to #create" do
       expect(post: "/software_instances").to route_to("software_instances#create")
     end

@@ -1,18 +1,18 @@
 FactoryBot.define do
   factory :software_instance do
-    name { "MyString" }
-    organisation { nil }
-    organisation_group { "MyString" }
-    team { "MyString" }
-    owner { "MyString" }
-    product { "MyString" }
-    provider { "MyString" }
-    provider_contact { "MyString" }
-    version { "MyString" }
-    description { "MyText" }
-    status { "MyString" }
+    name { Faker::App.name }
+    association :organisation
+    organisation_group { Faker::Commerce.department }
+    team { Faker::Team.name }
+    owner { Faker::App.author }
+    product { Faker::Commerce.product_name }
+    provider { Faker::Commerce.vendor }
+    provider_contact { Faker::Name.name }
+    version { Faker::App.semantic_version }
+    description { Faker::Lorem.paragraph }
+    status { 'production' }
     internal { false }
-    license { "MyString" }
+    license { 'MIT' }
     quantity_purchased { 1 }
     quantity_used { 1 }
   end

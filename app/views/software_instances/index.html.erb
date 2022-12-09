@@ -2,13 +2,23 @@
 
 <h1>Software instances</h1>
 
-<div id="software_instances">
-  <% @software_instances.each do |software_instance| %>
-    <%= render software_instance %>
-    <p>
-      <%= link_to "Show this software instance", software_instance %>
-    </p>
-  <% end %>
-</div>
+<table class="govuk-table" id="software_instances">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row"">
+      <th class="govuk-table__header">Name</th>
+      <th class="govuk-table__header">Organisation</th>
+      <th class="govuk-table__header">Product</th>
+      <th class="govuk-table__header">Provider</th>
+      <th class="govuk-table__header">Description</th>
+      <th class="govuk-table__header">Status</th>
+      <th class="govuk-table__header"></th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <% @software_instances.each do |software_instance| %>
+      <%= render software_instance %>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to "New software instance", new_software_instance_path %>

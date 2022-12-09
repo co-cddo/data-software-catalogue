@@ -1,92 +1,18 @@
-<%= form_with(model: software_instance) do |form| %>
-  <% if software_instance.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(software_instance.errors.count, "error") %> prohibited this software_instance from being saved:</h2>
-
-      <ul>
-        <% software_instance.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :organisation_id, style: "display: block" %>
-    <%= form.text_field :organisation_id %>
-  </div>
-
-  <div>
-    <%= form.label :organisation_group, style: "display: block" %>
-    <%= form.text_field :organisation_group %>
-  </div>
-
-  <div>
-    <%= form.label :team, style: "display: block" %>
-    <%= form.text_field :team %>
-  </div>
-
-  <div>
-    <%= form.label :owner, style: "display: block" %>
-    <%= form.text_field :owner %>
-  </div>
-
-  <div>
-    <%= form.label :product, style: "display: block" %>
-    <%= form.text_field :product %>
-  </div>
-
-  <div>
-    <%= form.label :provider, style: "display: block" %>
-    <%= form.text_field :provider %>
-  </div>
-
-  <div>
-    <%= form.label :provider_contact, style: "display: block" %>
-    <%= form.text_field :provider_contact %>
-  </div>
-
-  <div>
-    <%= form.label :version, style: "display: block" %>
-    <%= form.text_field :version %>
-  </div>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div>
-    <%= form.label :status, style: "display: block" %>
-    <%= form.text_field :status %>
-  </div>
-
-  <div>
-    <%= form.label :internal, style: "display: block" %>
-    <%= form.check_box :internal %>
-  </div>
-
-  <div>
-    <%= form.label :license, style: "display: block" %>
-    <%= form.text_field :license %>
-  </div>
-
-  <div>
-    <%= form.label :quantity_purchased, style: "display: block" %>
-    <%= form.number_field :quantity_purchased %>
-  </div>
-
-  <div>
-    <%= form.label :quantity_used, style: "display: block" %>
-    <%= form.number_field :quantity_used %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+<%= simple_form_for(software_instance) do |form| %>
+  <%= form.input :name %>
+  <%= form.association :organisation, wrapper: :govuk_select %>
+  <%= form.input :organisation_group %>
+  <%= form.input :team %>
+  <%= form.input :owner %>
+  <%= form.input :product %>
+  <%= form.input :provider %>
+  <%= form.input :provider_contact %>
+  <%= form.input :version %>
+  <%= form.input :description, wrapper: :textarea %>
+  <%= form.input :status %>
+  <%= form.input :internal, wrapper: :boolean_input %>
+  <%= form.input :license %>
+  <%= form.input :quantity_purchased %>
+  <%= form.input :quantity_used %>
+  <%= form.submit class: "govuk-button" %>
 <% end %>

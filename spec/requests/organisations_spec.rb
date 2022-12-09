@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "/organisations", type: :request do
+  fixtures :users
+
   let(:valid_attributes) do
     { name: 'Something new' }
   end
