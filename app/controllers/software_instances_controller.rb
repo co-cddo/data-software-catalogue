@@ -1,53 +1,57 @@
 class SoftwareInstancesController < ApplicationController
-  before_action :set_software_instance, only: %i[show edit update destroy]
+  before_action :organisation
 
-  # GET /software_instances
   def index
-    @software_instances = SoftwareInstance.all
+    @software_instances = organisation.software_instances
   end
 
-  # GET /software_instances/1
-  def show; end
+  def show
+    software_instance
+  end
 
-  # GET /software_instances/new
   def new
-    @software_instance = SoftwareInstance.new
+    @software_instance = organisation.software_instances.build
   end
 
-  # GET /software_instances/1/edit
-  def edit; end
-
-  # POST /software_instances
   def create
-    @software_instance = SoftwareInstance.new(software_instance_params)
+    @software_instance = organisation.software_instances.build(software_instance_params)
 
-    if @software_instance.save
-      redirect_to @software_instance, notice: "Software instance was successfully created."
+    if software_instance.save
+      redirect_to software_instance, notice: "Software instance was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /software_instances/1
+  def edit
+    software_instance
+  end
+
   def update
-    if @software_instance.update(software_instance_params)
-      redirect_to @software_instance, notice: "Software instance was successfully updated."
+    if software_instance.update(software_instance_params)
+      redirect_to software_instance, notice: "Software instance was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
-  # DELETE /software_instances/1
   def destroy
-    @software_instance.destroy!
-    redirect_to software_instances_url, notice: "Software instance was successfully destroyed."
+    software_instance.destroy!
+    redirect_to organisation_software_instances_path(organisation), notice: "Software instance was successfully destroyed."
   end
 
 private
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_software_instance
-    @software_instance = SoftwareInstance.find(params[:id])
+  def software_instance
+    @software_instance ||= SoftwareInstance.find(params[:id])
+  end
+
+  def organisation
+    @organisation ||= if params[:organisation_id].present?
+                        Organisation.find(params[:organisation_id])
+                      else
+                        software_instance.organisation
+                      end
   end
 
   # Only allow a list of trusted parameters through.

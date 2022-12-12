@@ -27,14 +27,6 @@ RSpec.describe "/organisations", type: :request do
     end
   end
 
-  describe "GET /show" do
-    it "renders a successful response" do
-      organisation = Organisation.create! valid_attributes
-      get organisation_url(organisation)
-      expect(response).to be_successful
-    end
-  end
-
   describe "GET /new" do
     it "prevents access and redirects to root" do
       get new_organisation_url

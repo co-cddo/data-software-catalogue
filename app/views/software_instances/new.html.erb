@@ -1,9 +1,9 @@
 <h1 class="govuk-heading-l">New software instance</h1>
 
-<%= render "form", software_instance: @software_instance %>
+<%= render "form", software_instance: [@organisation, @software_instance] %>
 
 <br>
 
 <div>
-  <%= govuk_link_to "Back to list", software_instances_path %>
+  <%= govuk_link_to "Back to list", organisation_software_instances_path(@organisation) %>
 </div>

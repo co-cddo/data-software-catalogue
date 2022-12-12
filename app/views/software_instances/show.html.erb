@@ -77,7 +77,7 @@
 </div>
 <div>
   <%= govuk_link_to "Edit", edit_software_instance_path(@software_instance) %> |
-  <%= govuk_link_to "Back to list", software_instances_path %>
+  <%= govuk_link_to "Back to list", organisation_software_instances_path(@organisation) %>
 
   <%= button_to(
         "Destroy",

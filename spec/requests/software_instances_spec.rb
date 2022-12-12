@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "/software_instances", type: :request do
   let(:organisation) { create :organisation }
   let(:valid_attributes) { attributes_for :software_instance, organisation_id: organisation.id }
-  let(:software_instance) { create :software_instance }
+  let(:software_instance) { create :software_instance, organisation: }
 
   let(:invalid_attributes) do
     {
@@ -13,22 +13,21 @@ RSpec.describe "/software_instances", type: :request do
 
   describe "GET /index" do
     it "renders a successful response" do
-      software_instance
-      get software_instances_url
+      get organisation_software_instances_path(organisation)
       expect(response).to be_successful
     end
   end
 
   describe "GET /show" do
     it "renders a successful response" do
-      get software_instance_url(software_instance)
+      get software_instance_path(software_instance)
       expect(response).to be_successful
     end
   end
 
   describe "GET /new" do
     it "renders a successful response" do
-      get new_software_instance_url
+      get new_organisation_software_instance_path(organisation)
       expect(response).to be_successful
     end
   end
@@ -44,12 +43,12 @@ RSpec.describe "/software_instances", type: :request do
     context "with valid parameters" do
       it "creates a new SoftwareInstance" do
         expect {
-          post software_instances_url, params: { software_instance: valid_attributes }
+          post organisation_software_instances_path(organisation), params: { software_instance: valid_attributes }
         }.to change(SoftwareInstance, :count).by(1)
       end
 
       it "redirects to the created software_instance" do
-        post software_instances_url, params: { software_instance: valid_attributes }
+        post organisation_software_instances_path(organisation), params: { software_instance: valid_attributes }
         expect(response).to redirect_to(software_instance_url(SoftwareInstance.last))
       end
     end
@@ -57,12 +56,12 @@ RSpec.describe "/software_instances", type: :request do
     context "with invalid parameters" do
       it "does not create a new SoftwareInstance" do
         expect {
-          post software_instances_url, params: { software_instance: invalid_attributes }
+          post organisation_software_instances_path(organisation), params: { software_instance: invalid_attributes }
         }.to change(SoftwareInstance, :count).by(0)
       end
 
       it "renders a response with 422 status (i.e. to display the 'new' template)" do
-        post software_instances_url, params: { software_instance: invalid_attributes }
+        post organisation_software_instances_path(organisation), params: { software_instance: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
@@ -106,7 +105,7 @@ RSpec.describe "/software_instances", type: :request do
 
     it "redirects to the software_instances list" do
       delete software_instance_url(software_instance)
-      expect(response).to redirect_to(software_instances_url)
+      expect(response).to redirect_to(organisation_software_instances_path(organisation))
     end
   end
 end
