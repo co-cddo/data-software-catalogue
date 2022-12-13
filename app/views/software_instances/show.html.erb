@@ -76,7 +76,10 @@
 
 </div>
 <div>
-  <%= govuk_link_to "Edit", edit_software_instance_path(@software_instance) %> |
+  <%= govuk_link_to(
+        "Edit",
+        edit_software_instance_path(@software_instance)
+      ) if policy(@software_instance).edit? %>
   <%= govuk_link_to "Back to list", organisation_software_instances_path(@organisation) %>
 
   <%= button_to(
@@ -85,5 +88,5 @@
         method: :delete,
         class: "govuk-button govuk-button--warning govuk-!-margin-top-5",
         data: { module: "govuk-button" }
-      ) %>
+      ) if policy(@software_instance).destroy? %>
 </div>

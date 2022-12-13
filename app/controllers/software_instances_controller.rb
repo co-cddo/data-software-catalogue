@@ -1,8 +1,9 @@
 class SoftwareInstancesController < ApplicationController
+  before_action :authenticate_user!, except: %i[index show]
   before_action :organisation
 
   def index
-    @software_instances = organisation.software_instances
+    authorize @software_instances = organisation.software_instances
   end
 
   def show
@@ -10,11 +11,11 @@ class SoftwareInstancesController < ApplicationController
   end
 
   def new
-    @software_instance = organisation.software_instances.build
+    authorize @software_instance = organisation.software_instances.build
   end
 
   def create
-    @software_instance = organisation.software_instances.build(software_instance_params)
+    authorize @software_instance = organisation.software_instances.build(software_instance_params)
 
     if software_instance.save
       redirect_to software_instance, notice: "Software instance was successfully created."
@@ -43,7 +44,7 @@ class SoftwareInstancesController < ApplicationController
 private
 
   def software_instance
-    @software_instance ||= SoftwareInstance.find(params[:id])
+    @software_instance ||= authorize SoftwareInstance.find(params[:id])
   end
 
   def organisation

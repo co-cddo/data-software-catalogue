@@ -8,6 +8,16 @@ class ApplicationPolicy
     @record = record
   end
 
+  # Shared rules
+  def anyone?
+    true
+  end
+
+  def admin?
+    user&.admin?
+  end
+
+  # Default action policies
   def index?
     false
   end

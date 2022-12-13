@@ -25,10 +25,10 @@
   <p>Software not found for this organisation</p>
 <% end %>
 
-
-<% if policy(@organisation).edit? %>
-  <%= govuk_link_to "Edit this organisation", edit_organisation_path(@organisation) %> |
-<% end %>
+<%= govuk_link_to(
+      "Edit this organisation",
+      edit_organisation_path(@organisation)
+    ) if policy(@organisation).edit? %>
 
 <%= button_to(
       "Destroy this organisation",
@@ -38,5 +38,9 @@
       data: { module: "govuk-button" }
     ) if policy(@organisation).destroy? %>
 
-<%= govuk_link_to "New software instance", new_organisation_software_instance_path(@organisation) %>
+<%= govuk_link_to(
+      "New software instance",
+      new_organisation_software_instance_path(@organisation)
+    ) if policy(:software_instance).new? %>
+
 <%= govuk_link_to "Back to organisations", root_path %>

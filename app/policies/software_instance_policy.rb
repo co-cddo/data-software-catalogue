@@ -1,8 +1,8 @@
-class OrganisationPolicy < ApplicationPolicy
+class SoftwareInstancePolicy < ApplicationPolicy
   def admin_or_users_organisation?
     return unless user
 
-    user.admin? || record == user.organisation
+    user.admin? || record.organisation == user.organisation
   end
 
   alias_method :index?, :anyone?
