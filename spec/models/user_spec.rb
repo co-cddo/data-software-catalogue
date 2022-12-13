@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  fixtures :users
   context "when using fixtures" do
     let(:user) { fixture :user, :user }
     let(:admin) { fixture :user, :admin }

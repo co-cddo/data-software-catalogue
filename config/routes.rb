@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
-  resources :organisations
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
   # Defines the root path route ("/")
   root "organisations#index"
+
+  devise_for :users
+
+  resources :organisations, except: [:show] do
+    resources :software_instances, shallow: true, path: :software
+  end
 end

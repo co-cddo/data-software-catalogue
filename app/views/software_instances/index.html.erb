@@ -1,0 +1,42 @@
+<h1><%= @organisation.name.capitalize %></h1>
+
+<h2>Software</h2>
+
+<% if @organisation.software_instances.present? %>
+  <table class="govuk-table" id="software_instances">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row"">
+        <th class="govuk-table__header">Name</th>
+        <th class="govuk-table__header">Organisation</th>
+        <th class="govuk-table__header">Product</th>
+        <th class="govuk-table__header">Provider</th>
+        <th class="govuk-table__header">Description</th>
+        <th class="govuk-table__header">Status</th>
+        <th class="govuk-table__header"></th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <% @software_instances.each do |software_instance| %>
+        <%= render software_instance %>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>Software not found for this organisation</p>
+<% end %>
+
+
+<% if policy(@organisation).edit? %>
+  <%= govuk_link_to "Edit this organisation", edit_organisation_path(@organisation) %> |
+<% end %>
+
+<%= button_to(
+      "Destroy this organisation",
+      @organisation,
+      method: :delete,
+      class: "govuk-button govuk-button--warning govuk-!-margin-top-5",
+      data: { module: "govuk-button" }
+    ) if policy(@organisation).destroy? %>
+
+<%= govuk_link_to "New software instance", new_organisation_software_instance_path(@organisation) %>
+<%= govuk_link_to "Back to organisations", root_path %>

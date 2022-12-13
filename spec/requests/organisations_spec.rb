@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "/organisations", type: :request do
+  fixtures :users
+
   let(:valid_attributes) do
     { name: 'Something new' }
   end
@@ -21,14 +23,6 @@ RSpec.describe "/organisations", type: :request do
     it "renders a successful response" do
       Organisation.create! valid_attributes
       get organisations_url
-      expect(response).to be_successful
-    end
-  end
-
-  describe "GET /show" do
-    it "renders a successful response" do
-      organisation = Organisation.create! valid_attributes
-      get organisation_url(organisation)
       expect(response).to be_successful
     end
   end

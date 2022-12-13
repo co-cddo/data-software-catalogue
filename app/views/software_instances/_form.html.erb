@@ -1,0 +1,18 @@
+<%= simple_form_for(software_instance) do |form| %>
+  <%= form.input :name %>
+  <%= form.association :organisation, wrapper: :govuk_select %>
+  <%= form.input :organisation_group %>
+  <%= form.input :team %>
+  <%= form.input :owner %>
+  <%= form.input :product %>
+  <%= form.input :provider %>
+  <%= form.input :provider_contact %>
+  <%= form.input :version %>
+  <%= form.input :description, wrapper: :textarea %>
+  <%= form.input :status %>
+  <%= form.input :internal, wrapper: :boolean_input %>
+  <%= form.input :license %>
+  <%= form.input :quantity_purchased %>
+  <%= form.input :quantity_used %>
+  <%= form.submit class: "govuk-button" %>
+<% end %>

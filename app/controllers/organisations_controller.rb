@@ -1,14 +1,9 @@
 class OrganisationsController < ApplicationController
-  before_action :authenticate_user!, except: %i[index show]
+  before_action :authenticate_user!, except: %i[index]
 
   # GET /organisations
   def index
     authorize @organisations = Organisation.all
-  end
-
-  # GET /organisations/1
-  def show
-    organisation
   end
 
   # GET /organisations/new
