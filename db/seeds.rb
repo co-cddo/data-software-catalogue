@@ -15,13 +15,15 @@ software_data = CSV.parse(File.read(csv_path), headers: true)
 
 software_data.each_with_index do |datum, i|
   hash = datum.to_h
-  organisation = Organisation.find_or_create_by(name: hash.delete('organisation'))
-  result = SoftwareInstance.find_or_create_by(organisation_id: organisation.id, product: hash['product']) do |software_instance|
+  organisation = Organisation.find_or_create_by!(name: hash.delete('organisation'))
+  result = SoftwareInstance.find_or_create_by!(organisation_id: organisation.id, product: hash['product']) do |software_instance|
     hash['internal'] = hash['internal']&.downcase == 'internal'
     software_instance.attributes = hash
   end
   puts "Software item #{i + 1} save failed: #{result.errors.full_messages.to_sentence}" unless result.valid?
 end
+
+PgSearch::Multisearch.rebuild SoftwareInstance
 
 Seeder.report.each { |r| Rails.logger.info r }
 puts Seeder.report

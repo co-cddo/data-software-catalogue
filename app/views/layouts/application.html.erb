@@ -37,6 +37,7 @@
             <% end %>
             <%= content_tag(:p, notice, class: 'notice', style: "color: green") if notice.present? %>
             <%= content_tag(:p, alert, class: 'alert', style: "color: red") if alert.present? %>
+            <%= render('layouts/search') if action_name == 'index' %>
             <%= yield %>
           </div>
         </div>

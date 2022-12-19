@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  resources :search, only: [:index]
+
   resources :organisations, except: [:show] do
     resources :software_instances, shallow: true, path: :software
   end
