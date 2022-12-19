@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_06_162426) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_16_151505) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -38,6 +38,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_162426) do
     t.integer "quantity_used"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "packages"
+    t.string "sub_organisation"
     t.index ["organisation_id"], name: "index_software_instances_on_organisation_id"
   end
 
