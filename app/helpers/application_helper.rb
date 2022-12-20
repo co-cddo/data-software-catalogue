@@ -8,7 +8,7 @@ module ApplicationHelper
   def page_title_suffix
     return "Organisation #{params[:organisation_id]} Software" if controller_name == 'software_instances' && action_name == 'index'
     return controller_name if action_name == 'index'
-    return [controller_name, action_name] unless params[:id].present?
+    return [controller_name, action_name] if params[:id].blank?
 
     [controller_name, "#{action_name} #{params[:id]}"]
   end
