@@ -3,7 +3,9 @@ class OrganisationsController < ApplicationController
 
   # GET /organisations
   def index
-    authorize @organisations = Organisation.all
+    authorize @organisations = Organisation.left_joins(:software_instances)
+                                           .select("organisations.*, COUNT(software_instances.id) AS software_instance_count")
+                                           .group("organisations.id")
   end
 
   # GET /organisations/new
