@@ -1,12 +1,23 @@
-<h1 class="govuk-heading-l">Organisations</h1>
-
-<div id="organisations">
-  <% @organisations.each do |organisation| %>
-    <%= render organisation %>
-    <p>
-      <%= govuk_link_to "Show this organisation", organisation_software_instances_path(organisation) %>
-    </p>
-  <% end %>
-</div>
+<table id="organisations" class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Organisations</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Name</th>
+      <th scope="col" class="govuk-table__header">Software instances</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <% @organisations.each do |organisation| %>
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">
+          <%= govuk_link_to organisation.name, organisation_software_instances_path(organisation) %>
+        </th>
+        <td class="govuk-table__cell">
+          <%= organisation.software_instance_count %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= govuk_link_to("New organisation", new_organisation_path) if policy(:organisation).new? %>
