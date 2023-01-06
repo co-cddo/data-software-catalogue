@@ -16,6 +16,13 @@
     <%= form.text_field :name, class: "govuk-input" %>
   </div>
 
+  <% unless organisation.persisted? %>
+    <div class="govuk-form-group">
+      <%= form.label :tag, style: "display: block", class: "govuk-label" %>
+      <%= form.text_field :tag, class: "govuk-input" %>
+    </div>
+  <% end %>
+
   <div>
     <%= form.submit class: "govuk-button", data: { module: "govuk-button" } %>
   </div>

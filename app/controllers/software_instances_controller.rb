@@ -49,7 +49,7 @@ private
 
   def organisation
     @organisation ||= if params[:organisation_id].present?
-                        Organisation.find(params[:organisation_id])
+                        Organisation.find_by!(tag: params[:organisation_id])
                       else
                         software_instance.organisation
                       end

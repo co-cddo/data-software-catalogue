@@ -3,4 +3,4 @@ admin@example.com:
   admin: true
 user@example.com:
   password: <%= Rails.application.credentials.seeds.password %>
-  organisation_id: <%= Organisation.find_or_create_by(name: 'Department for Health and Social Care').id %>
+  organisation_id: <%= Organisation.find_or_create_by(name: 'Department for Health and Social Care', tag: 'dhsc').id %>

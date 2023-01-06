@@ -1,4 +1,6 @@
 foo:
   name: Foo
+  tag: foo
 bar:
   name: Bar
+  tag: bar
