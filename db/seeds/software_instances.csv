@@ -1,9 +1,7 @@
 organisation,sub_organisation,team,owner,name,product,provider,packages,version,provider_contact,description,status,internal,license,quantity_purchased,quantity_used
-Department for Work and Pensions,,,,,Informatica,Infomatica,"Axon, MDM, PowerCentre, Data Quality AE, ",,,"Informatica 2021 licensing and support renewal (12 months) Informatica supply, support and maintain software products and tools that facilitate the integration of data and the management of that data, where the data has multiple sources and is in multiple formats. This data compilation supports the creation of management reports used by Ministers and throughout the wider DWP.",Live,Internal,,,
-Department for Education,,,,,Informatica,Infomatica,,,,Purchase of subscription to Informatica products for deployment in private cloud.,Live,Internal,,,
-Home Office,,,,,Collibra,Collibra,,,,"Collibra Licences 12 month with option to extend for a further 12 months.
-
-",Ended (March 2020),Internal,,,
-Cabinet Office,GDS,,,,Palantir,Palantir,,,,Enterprise Analytical Platform and Intelligence Service.,Ended (Aug 2017),Internal,,,
-Department for Health and Social Care,,Adult Social Care Dashboard,,,EDGE,,,,,,Live,,,,
-Department for Health and Social Care,,,,,Palantir,Palantir,,,,Provision of data management platform services,Ended (Sept 2020),Internal,,,
+DWP,,,,,Informatica,Infomatica,"Axon, MDM, PowerCentre, Data Quality AE, ",,,"Informatica 2021 licensing and support renewal (12 months) Informatica supply, support and maintain software products and tools that facilitate the integration of data and the management of that data, where the data has multiple sources and is in multiple formats. This data compilation supports the creation of management reports used by Ministers and throughout the wider DWP.",Live,Internal,,,
+DfE,,,,,Informatica,Infomatica,,,,Purchase of subscription to Informatica products for deployment in private cloud.,Live,Internal,,,
+HO,,,,,Collibra,Collibra,,,,"Collibra Licences 12 month with option to extend for a further 12 months.",Ended (March 2020),Internal,,,
+CO,GDS,,,,Palantir,Palantir,,,,Enterprise Analytical Platform and Intelligence Service.,Ended (Aug 2017),Internal,,,
+DHSC,,Adult Social Care Dashboard,,,EDGE,,,,,,Live,,,,
+DHSC,,,,,Palantir,Palantir,,,,Provision of data management platform services,Ended (Sept 2020),Internal,,,

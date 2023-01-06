@@ -1,0 +1,96 @@
+GDS:
+  hyphenated_name: government-digital-service
+  name: Government Digital Service
+ONS:
+  hyphenated_name: office-of-national-statistics
+  name: Office for National Statistics
+DVLA:
+  hyphenated_name: driver-and-vehicle-licensing-agency
+  name: Driver and Vehicle Licensing Agency
+CH:
+  hyphenated_name: companies-house
+  name: Companies House
+OS:
+  hyphenated_name: ordnance-survey
+  name: Ordnance Survey
+EA:
+  hyphenated_name: environment-agency
+  name: Environment Agency
+Scot:
+  hyphenated_name: scottish-government
+  name: Scottish Government
+DfE:
+  hyphenated_name: department-for-education
+  name: Department for Education
+DWP:
+  hyphenated_name: department-for-work-and-pensions
+  name: Department for Work and Pensions
+Hackney:
+  hyphenated_name: london-borough-of-hackney
+  name: London Borough of Hackney
+LGA:
+  hyphenated_name: local-government-association
+  name: Local Government Association
+WBerks:
+  hyphenated_name: west-berkshire-council
+  name: West Berkshire Council
+HMRC:
+  hyphenated_name: hm-revenue-customs
+  name: HM Revenue & Customs
+UKHO:
+  hyphenated_name: uk-hydrographic-office
+  name: UK Hydrographic Office
+DIT:
+  hyphenated_name: department-for-international-trade
+  name: Department for International Trade
+WMCA:
+  hyphenated_name: west-midlands-combined-authority
+  name: West Midlands Combined Authority
+TNA:
+  hyphenated_name: the-national-archives
+  name: The National Archives
+MOJ:
+  hyphenated_name: ministry-of-justice
+  name: Ministry of Justice
+TfL:
+  hyphenated_name: transport-for-london
+  name: Transport for London
+UKP:
+  hyphenated_name: uk-police
+  name: UK Police
+DLUHC:
+  hyphenated_name: department-for-levelling-up-housing-and-communities
+  name: Department for Levelling Up, Housing and Communities
+Defra:
+  hyphenated_name: defra
+  name: Department for Environment, Food and Rural Affairs
+BCC:
+  hyphenated_name: buckinghamshire-council
+  name: Buckinghamshire Council
+IS:
+ hyphenated_name: Insolvency-service
+name: Insolvency Service
+HO:
+  hyphenated_name: home-office
+  name: Home Office
+DfT:
+  hyphenated_name: department-for-transport
+  name: Department for Transport
+TAS:
+  hyphenated_name: the-apprenticeship-service
+  name: The Apprenticeship Service
+Cefas:
+  hyphenated_name: cefas
+  name: Centre for Environment, Fisheries and Aquaculture
+BGS:
+  hyphenated_name: bgs
+  name: British Geological Survey
+HMLR:
+  hyphenated_name: hm-land-registry
+  name: HM Land Registry
+DHSC:
+  hyphenated_name: department-for-health-and-social-care
+  name: Department for Health and Social Care
+CO:
+  hyphenated_name: cabinet-office
+  name: Cabinet Office

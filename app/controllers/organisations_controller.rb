@@ -18,7 +18,7 @@ class OrganisationsController < ApplicationController
     authorize @organisation = Organisation.new(organisation_params)
 
     if organisation.save
-      redirect_to organisation, notice: "Organisation was successfully created."
+      redirect_to organisation_software_path, notice: "Organisation was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -32,7 +32,7 @@ class OrganisationsController < ApplicationController
   # PATCH/PUT /organisations/1
   def update
     if organisation.update(organisation_params)
-      redirect_to @organisation, notice: "Organisation was successfully updated."
+      redirect_to organisation_software_path, notice: "Organisation was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -46,13 +46,17 @@ class OrganisationsController < ApplicationController
 
 private
 
+  def organisation_software_path
+    organisation_software_instances_path(organisation)
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def organisation
-    @organisation ||= authorize Organisation.find(params[:id])
+    @organisation ||= authorize Organisation.find_by(tag: params[:id])
   end
 
   # Only allow a list of trusted parameters through.
   def organisation_params
-    params.require(:organisation).permit(:name)
+    params.require(:organisation).permit(:name, :tag)
   end
 end

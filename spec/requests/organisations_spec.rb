@@ -1,14 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe "/organisations", type: :request do
-  fixtures :users
+  fixtures :users, :organisations
 
   let(:valid_attributes) do
-    { name: 'Something new' }
+    { name: 'Something new', tag: 'something-new' }
   end
 
   let(:invalid_attributes) do
-    { name: nil }
+    { name: '' }
   end
 
   let(:admin) { fixture :user, :admin }
@@ -21,7 +21,7 @@ RSpec.describe "/organisations", type: :request do
 
   describe "GET /index" do
     it "renders a successful response" do
-      Organisation.create! valid_attributes
+      organisation
       get organisations_url
       expect(response).to be_successful
     end
@@ -59,9 +59,9 @@ RSpec.describe "/organisations", type: :request do
           }.to change(Organisation, :count).by(1)
         end
 
-        it "redirects to the created organisation" do
+        it "redirects to the created organisation's software page" do
           post organisations_url, params: { organisation: valid_attributes }
-          expect(response).to redirect_to(organisation_url(Organisation.last))
+          expect(response).to redirect_to(organisation_software_instances_path(Organisation.last))
         end
       end
 
@@ -129,7 +129,7 @@ RSpec.describe "/organisations", type: :request do
         it "redirects to the organisation" do
           patch organisation_url(organisation), params: { organisation: new_attributes }
           organisation.reload
-          expect(response).to redirect_to(organisation_url(organisation))
+          expect(response).to redirect_to(organisation_software_instances_path(organisation))
         end
       end
 
@@ -153,7 +153,7 @@ RSpec.describe "/organisations", type: :request do
       it "redirects to the organisation" do
         patch organisation_url(organisation), params: { organisation: new_attributes }
         organisation.reload
-        expect(response).to redirect_to(organisation_url(organisation))
+        expect(response).to redirect_to(organisation_software_instances_path(organisation))
       end
     end
   end
