@@ -1,6 +1,17 @@
-# README
+# Data Software Catalogue
+
+A Rails application created to keep track of the data software used by
+different government departments.
+
+## Current status
+This application has been archived, as attention has moved elsewhere.
+
+Basic functionality is provided including a search facility. Development
+could continue if the need for such a catalogue becomes a priority.
 
 ## Deployment
+
+The application is build on Ruby on Rails, with a postgres database.
 
 ### CSS
 
